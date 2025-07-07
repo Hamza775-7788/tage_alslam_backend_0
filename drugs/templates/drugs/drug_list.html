@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاج السلام فارما</title>
+    <style>
+        body {
+            direction: rtl;
+        }
+
+        .app-bar-text {
+            flex-wrap: wrap;
+            font-size: 50px;
+            display: flex;
+            font-weight: bold;
+        }
+
+        .product-list {
+            flex-wrap: wrap;
+            display: flex;
+            gap: 20px;
+        }
+
+        .product-item {
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* الشادو هنا */
+            transition: transform 0.2s ease;
+        }
+
+        nav {
+            width: 80%;
+            min-width: 600px;
+            display: flex;
+            justify-content: space-around;
+            margin: auto;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'admin/css/dark_mode.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'admin/css/autocomplete.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/changelists.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/nav_sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/responsive_rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+    <img src="" alt="">
+
+
+
+
+    <header>
+        <h1>test app</h1>
+    </header>
+
+</head>
+
+<body>
+    <nav>
+        <!-- <label for=""> تاج السلام</label>
+        <img src="{%  static 'logo_besic.png' %}" alt="Course Image" aria-placeholder="" height="80px">
+        <h1 class="app-bar-text"> تاج السلام فارما</h1> -->
+        <a href="">home</a>
+        <a href="">About</a>
+        <a href="">products</a>
+        <a href="">categories</a>
+    </nav>
+    <dev class="product-list">
+        {% for drug in drugs %}
+        <dev class="product-item">
+            <img src="{{ drug.image }}" alt="Course Image" aria-placeholder="" height="150px"> <br> </br>
+            {{ drug.name_ar }}
+
+            <!-- <a href="{% url 'edit_drug' drug.pk %}">تعديل</a>
+            |
+            <a href="{% url 'delete_drug' drug.pk %}">حذف</a> -->
+
+        </dev>
+
+
+
+        {% empty %}
+        <li>لا توجد أدوية</li>
+        {% endfor %}
+
+    </dev>
+
+    <a href="{% url 'add_drug' %}">إضافة دواء جديد</a>
+</body>
+
+</html>

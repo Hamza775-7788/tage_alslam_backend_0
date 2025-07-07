@@ -1,0 +1,6 @@
+<h2>هل أنت متأكد أنك تريد حذف: {{ drug.name_ar }}؟</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">نعم، احذف</button>
+    <a href="{% url 'drug_list' %}">إلغاء</a>
+</form>
